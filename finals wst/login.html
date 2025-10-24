@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log In</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background-color: #f4f8ff;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .login-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+    .login-box {
+      background: #f1f6ff;
+      padding: 40px 50px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 400px;
+    }
+    .login-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 25px;
+    }
+    .login-header img { width: 30px; }
+    .login-header h2 {
+      font-size: 24px;
+      font-weight: 600;
+    }
+    label { 
+      font-size: 14px; 
+      margin-bottom: 5px; 
+      color: #555; 
+      text-align: left; 
+      display: block; 
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+    }
+    .signin-btn {
+      background-color: #3b6ef5;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      font-size: 20px;
+      cursor: pointer;
+      padding: 10px;
+      width: 100%;
+    }
+    .divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 25px 0;
+      position: relative;
+    }
+    .divider::before,
+    .divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: #ccc;
+      margin: 0 10px;
+    }
+    .divider span { font-size: 13px; color: #555; }
+    .social-login {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+    .social-login img {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      transition: transform 0.3s ease;
+    }
+    .signup-txt { font-size: 13px; color: #333; }
+    .signup-txt a {
+      color: #2b6edb;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .disabled {
+      color: gray;
+      pointer-events: none;
+      text-decoration: none;
+      cursor: default;
+      opacity: 0.6;
+    }
+    .forgot {
+      font-size: 13px;
+      color: #2b6edb;
+      display: block;
+      text-align: right;
+      margin-bottom: 15px;
+      text-decoration: none;
+    }
+    .forgot:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-box">
+      <div class="login-header">
+        <img src="images/user.png" alt="User">
+        <h2>Log In</h2>
+      </div>
+      <form id="loginForm">
+        <label>Username</label>
+        <input type="text" id="username" placeholder="Username" required>
+        <label>Password</label>
+        <input type="password" id="password" placeholder="Password" required>
+
+        <a href="#" class="forgot disabled">Forgot Password?</a>
+
+        <button type="submit" class="signin-btn">Sign In</button>
+      </form>
+      <div class="divider"><span>Login with social accounts</span></div>
+      <div class="social-login">
+        <a href="https://www.facebook.com/" target="_blank"><img src="images/facebook.png" alt="FACEBOOK"></a>
+        <a href="https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&dsh=S-65372007%3A1761296174578097&ifkv=ARESoU0_wruiWTXm-hh9u28UguCSkLZzuEgf-LxOf1mLub3mziJBZGYbbtSTQVy3H7PZ5bOI2IfVVQ&rip=1&sacu=1&service=mail&flowName=GlifWebSignIn&flowEntry=ServiceLogin" target="_blank"><img src="images/google.png" alt="GOOGLE"></a>
+      </div>
+      <p class="signup-txt">Don't have an account? <a href="#" class="disabled">Sign Up</a></p>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
+      if (username && password) {
+        alert("Welcome, " + username + "! Redirecting to homepage...");
+        window.location.href = "index.html"; 
+      } else {
+        alert("⚠️ Please fill in both Username and Password.");
+      }
+    });
+  </script>
+</body>
+</html>

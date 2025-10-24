@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech Website</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: white;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: white;
+      padding: 0px 5px;
+    }
+    .logo {
+      width: 100px;
+      height: auto;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #000;
+      font-size: 20px;
+      font-weight: 700;
+    }
+    .nav-links a.active {
+      background-color: #e6edff;
+      padding: 10px 25px;
+      border-radius: 40px;
+    }
+    .login-icon {
+      width: 30px;
+      height: auto;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+    footer {
+      background-color: #0019ff;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+      margin-top: 40px;
+    }
+    .page-section { display: none; }
+    .page-section.active { display: block; }
+
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0px 30px;
+    }
+    .hero-text { text-align: center; }
+    .hero-text h1 {
+      font-size: 100px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #000;
+    }
+    .hero-text p {
+      font-size: 20px;
+      color: #333;
+      line-height: 1.5;
+      margin-bottom: 50px;
+    }
+    .shop-btn {
+      background-color: #3b6ef5;
+      color: white;
+      border: none;
+      padding: 10px 0;
+      border-radius: 12px;
+      font-size: 20px;
+      cursor: pointer;
+      font-weight: 600;
+      width: 200px;
+      height: 50px;
+    }
+    .shop-btn:hover { background-color: #2f58c6; }
+    .hero-image img { width: 800px; height: auto; }
+
+    .products { text-align: center; }
+    .products h2 {
+      font-size: 50px;
+      font-weight: bold;
+      margin-bottom: 50px;
+      color: #000;
+      text-align: left;
+      margin-left: 50px;
+      margin-top: 40px;
+    }
+    .product-list {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+    .product { text-align: center; }
+    .product-img {
+      border: 1px solid #000;
+      border-radius: 15px;
+      padding: 0px 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .product-img img {
+      width: 300px;
+      height: 250px;
+      max-width: 100%;
+    }
+    .learn-btn {
+      margin-top: 40px;
+      margin-bottom: 40px;
+      background-color: #3b6ef5;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 15px;
+      font-size: 20px;
+      cursor: pointer;
+      width: 200px;
+    }
+    .learn-btn:hover { background-color: #2f58c6; }
+
+    .about-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 60px;
+      padding: 50px 100px;
+      flex-wrap: wrap;
+    }
+    .about-left { text-align: center; }
+    .image-box {
+      border: 1px solid #aaa;
+      border-radius: 20px;
+      padding: 30px;
+      display: inline-block;
+    }
+    .image-box img { width: 600px; }
+    .about-right {
+      max-width: 480px;
+      text-align: left;
+    }
+    .about-right h1 {
+      font-size: 50px;
+      font-weight: 700;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+    .about-right p {
+      font-size: 16px;
+      line-height: 1.6;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    .apps-used { margin-top: 25px; text-align: center; }
+    .apps-used p {
+      font-size: 13px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+    .app-icons {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      margin-bottom: 40px;
+    }
+    .app-icons div { text-align: center; }
+    .app-icons img {
+      width: 40px;
+      margin-bottom: 5px;
+      margin-top: 10px;
+    }
+
+    .contact-section {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: flex-start;
+      padding: 60px 80px;
+      flex-wrap: wrap;
+    }
+    .contact-left { text-align: center; }
+    .contact-left img {
+      width: 600px;
+      border: 1px solid #aaa;
+      border-radius: 30px;
+      padding: 20px;
+    }
+    .socials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+  font-size: 18px;
+  margin-left: -100px;
+}
+
+.socials p {
+  font-weight: 600;
+  margin: 0;
+}
+
+.socials-icons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.socials-icons img {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.2s ease;
+}
+
+.socials-icons img:hover {
+  transform: scale(1.1);
+}
+    .contact-right { width: 400px; }
+    .contact-right h1 {
+      font-size: 50px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .get-in-touch {
+      font-size: 14px;
+      text-align: center;
+      margin: 8px 0 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    form { display: flex; flex-direction: column; gap: 12px; }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid black;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    button {
+      background-color: #3b6ef5;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      padding: 10px 0;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      width: 120px;
+      align-self: center;
+      margin-top: 20px;
+      transition: background-color 0.3s ease;
+    }
+    button:hover { background-color: #2653c7; }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar">
+    <img src="images/logo.png" alt="Logo" class="logo">
+    <ul class="nav-links">
+      <li><a href="#" class="active" onclick="showPage('home', this)">Home</a></li>
+      <li><a href="#" onclick="showPage('about', this)">About</a></li>
+      <li><a href="#" onclick="showPage('contact', this)">Contact</a></li>
+      <li><a href="login.html"><img src="images/user.png" alt="Log In" class="login-icon">Log In</a></li>
+    </ul>
+  </nav>
+
+  <section id="home" class="page-section active">
+    <div class="hero">
+      <div class="hero-text">
+        <h1>Tech made<br>Simple.</h1>
+        <p>Discover the latest gadgets, tools, and insights that make your digital life easier.</p>
+        <button class="shop-btn" onclick="alert('Welcome to TechZone! Explore our latest gadgets now.')">Get Started</button>
+      </div>
+      <div class="hero-image">
+        <img src="images/home.png" alt="Laptop">
+      </div>
+    </div>
+    <div class="products">
+      <h2>Our Products</h2>
+      <div class="product-list">
+        <div class="product">
+          <div class="product-img"><img src="images/laptop.png" alt="Laptop"></div>
+          <button class="learn-btn" onclick="alert('Experience top-notch performance with our latest laptop models!')">Learn More</button>
+        </div>
+        <div class="product">
+          <div class="product-img"><img src="images/cp.png" alt="Phone"></div>
+          <button class="learn-btn" onclick="alert('Discover smartphones built for speed and style!')">Learn More</button>
+        </div>
+        <div class="product">
+          <div class="product-img"><img src="images/smartwatch.png" alt="Watch"></div>
+          <button class="learn-btn" onclick="alert('Stay connected with our new generation smartwatches!')">Learn More</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="page-section">
+    <div class="about-section">
+      <div class="about-left">
+        <div class="image-box"><img src="images/home.png" alt="Laptop"></div>
+      </div>
+      <div class="about-right">
+        <h1>About Us</h1>
+        <p><strong>Welcome to Tech Made Simple</strong>, your trusted tech and gadget shopping destination.</p>
+        <p>We make it easy to discover, compare, and shop for the latest devices. Our mission is to simplify your tech experience by offering honest reviews, guides, and reliable products that fit your needs.</p>
+        <div class="apps-used">
+          <p>We used the following applications:</p>
+          <div class="app-icons">
+            <div><img src="images/figma.png" alt="Figma"><p>Figma</p></div>
+            <div><img src="images/html.png" alt="HTML"><p>HTML</p></div>
+            <div><img src="images/chatgpt.png" alt="ChatGPT"><p>ChatGPT</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="page-section">
+    <div class="contact-section">
+      <div class="contact-left">
+        <img src="images/home.png" alt="Laptop">
+        <div class="socials">
+          <p><strong>Socials:</strong></p>
+          <div class="socials-icons">
+            <a href="https://www.facebook.com/liwince" target="_blank"><img src="images/facebook.png" alt="Facebook"></a>
+            <a href="https://www.instagram.com/lee.winho/" target="_blank"><img src="images/instagram.png" alt="Instagram"></a>
+            <a href="https://www.tiktok.com/explore" target="_blank"><img src="images/tiktok.png" alt="Tiktok"></a>
+          </div>
+        </div>
+      </div>
+      <div class="contact-right">
+        <h1>Contact</h1>
+        <hr>
+        <p class="get-in-touch">Get in Touch</p>
+        <hr style="margin-bottom: 30px;">
+        <form id="contactForm">
+          <input type="text" id="name" placeholder="Name" required>
+          <input type="email" id="email" placeholder="Email" required>
+          <textarea id="message" placeholder="Message" rows="5" required></textarea>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 by Liwince. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function showPage(pageId, element) {
+      document.querySelectorAll('.page-section').forEach(sec => sec.classList.remove('active'));
+      document.getElementById(pageId).classList.add('active');
+      document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+      element.classList.add('active');
+      window.scrollTo(0, 0);
+    }
+
+    document.getElementById("contactForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+      if (name && email && message) {
+        alert("Thank you, " + name + "! Your message has been received.");
+        this.reset();
+      } else {
+        alert("⚠️ Please fill in all fields before submitting.");
+      }
+    });
+  </script>
+</body>
+</html>
